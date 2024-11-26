@@ -1,0 +1,30 @@
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+import time
+
+USERNAME = "_python_project_"
+PASSWORD = "projectpython"
+
+# Initialize a Chrome webdriver instance
+driver=webdriver.Chrome()
+driver.get("https://www.instagram.com/")
+
+# Find username input area and write username
+username = WebDriverWait(driver, timeout=60).until(
+    lambda d: d.find_element(By.XPATH, '//*[@id="loginForm"]/div/div[1]/div/label/input'))
+username.send_keys(USERNAME)
+                             
+ # Find password input area and write password
+password = driver.Find_element(by.XPATH, '//*[@id="loginform"]/div/div[2]/div/label/input')
+password.Send_keys(password)
+                               
+# Click on login button
+enter = driver.Find_element(by.XPATH, '//*[@id="loginform"]/div/div[3]/button')
+enter.Click()
+time.Sleep(5)
+                            
+#click on not now in pop up
+not_now = driver.Find_element(by.Css_selector, '._a9_1')
+not_now.Click()
+time.Sleep(5)
